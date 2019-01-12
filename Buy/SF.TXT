@@ -1,0 +1,11 @@
+		Well come to Bus Ticketing & Reservation System
+				Narayani Yatayat
+				Kathmandu, Nepal
+
+
+	Bus No. : BA 20 JA 2354				Date : sdfgsdg
+
+	Full Name = sf.txt
+	From : dfs	To : 	sdfgsdTime : dsfgsd
+	No of Passenger : sdfgsd	Seat no : dsfgs
+	Rate : dfgsdf
