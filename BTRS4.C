@@ -6,7 +6,7 @@
 #define FIELD_SIZE 25
 #define length(array) ( sizeof (array) / sizeof (array)[i] )
 
-//function decleration//
+//function declaration//
 void get_password();
 void login();
 void allert();
@@ -15,7 +15,6 @@ void buy();
 void res();
 void cancel();
 void more();
-void validation();
 
 //username and password//
 struct account
@@ -72,6 +71,7 @@ void get_password(char *pwd, int size)
 void login()
 {
     int ch;
+    int i;
     char uid[FIELD_SIZE];
     char pwd[FIELD_SIZE];
     //for out box//
@@ -97,7 +97,7 @@ void login()
     floodfill(111,281,15);
 
     //text display for  header//
-    outtextxy(280,120,"WELLOME TO");
+    outtextxy(280,120,"WELCOME TO");
     outtextxy(190,140,"BUS TICKETING & RESERVATION SYSTEM");
 
     //for text display for username input//
@@ -123,15 +123,21 @@ void login()
 		}
 		else
 		{
-
-		    outtextxy(170,265,"Invalid Username or Password");
-		    allert();
-		    login();
+            clrscr();
+            setfillstyle(1,0);
+            rectangle(0,0,660,660);
+            floodfill(1,1,15);
+            //clrscr();
+            outtextxy(170,265,"Invalid Username or Password");
+            allert();
+            login();
 		}
 
 	 }
 
 }
+
+
  //warning sound//
 void allert()
 {
@@ -224,14 +230,17 @@ void buy()
     FILE *file_pointer;
     char path[] = "C:/TURBOC3/BIN/PROJECT/Buy/";
     char a[55];
+    char b[100];
     char name[100];
     char from[55];
     char to[55];
     char seat[55];
     char date[55];
     char time[55];
-    char rate[55];
-    char pass[55];
+    //char rate[55];
+    int rate;
+    int total;
+    int pass;
     char ch;
     // int date, time,rate,pass;
     //inner and outer box//
@@ -283,8 +292,9 @@ void buy()
     gets(a);
     gotoxy(30,12);
     gets(name);
-    strcat(name,".txt");
-    strcat(path,name);
+    strcpy(b, name);
+    strcat(b,".txt");
+    strcat(path,b);
     //open the file "name_of_file.txt" for writing
     file_pointer = fopen(path, "a");
     gotoxy(25,14);
@@ -297,27 +307,28 @@ void buy()
     gets(time);
     gotoxy(25,18);
     printf("Rs. ");
-    gets(rate);
+    scanf("%d",&rate);
     gotoxy(64,18);
-    gets(pass);
+    scanf("%d",&pass);
+    gets(a);
     gotoxy(28,20);
     gets(seat);
+    total = rate*pass;
     fprintf(file_pointer,"\t\tWell come to Bus Ticketing & Reservation System\n\t\t\t\tNarayani Yatayat\n\t\t\t\tKathmandu, Nepal\n\n\n");
     fprintf(file_pointer,"\tBus No. : BA 20 JA 2354\t\t\t\tDate : %s\n\n",date);
     fprintf(file_pointer,"\tFull Name = ");
     fputs(name,file_pointer);
     fprintf(file_pointer,"\n\tFrom : ");
     fputs(from,file_pointer);
-    fprintf(file_pointer,"\tTo : \t");
+    fprintf(file_pointer,"\tTo : ");
     fputs(to,file_pointer);
     fprintf(file_pointer,"Time : ");
     fputs(time,file_pointer);
-    fprintf(file_pointer,"%s\n\tNo of Passenger : ");
-    fputs(pass,file_pointer);
-    fprintf(file_pointer,"%s\tSeat no : ");
+    fprintf(file_pointer,"\n\tNo of Passenger : %d",pass);
+    fprintf(file_pointer,"\tSeat no : ");
     fputs(seat,file_pointer);
-    fprintf(file_pointer,"%s\n\tRate : ");
-    fputs(rate,file_pointer);
+    fprintf(file_pointer,"\n\tRate : %d",rate);
+    fprintf(file_pointer,"\n\ttotal : %d",total);
     // Close the file)
     fclose(file_pointer);
     clrscr();
@@ -332,14 +343,17 @@ void res()
     FILE *file_pointer;
     char path[] = "C:/TURBOC3/BIN/PROJECT/Res/";
     char a[55];
+    char b[100];
     char name[100];
     char from[55];
     char to[55];
     char seat[55];
     char date[55];
     char time[55];
-    char rate[55];
-    char pass[55];
+    //char rate[55];
+    int rate;
+    int total;
+    int pass;
     char ch;
     // int date, time,rate,pass;
     //inner and outer box//
@@ -351,6 +365,7 @@ void res()
     setfillstyle(1,3);
     rectangle(90,110,550,370);
     floodfill(111,111,15);
+
     setfillstyle(1,4);
     rectangle(90,150,550,155);
     rectangle(90,330,550,335);
@@ -385,14 +400,14 @@ void res()
     outtextxy(115,275,"Rate ::");
     outtextxy(350,275,"No. of Pasenger :::");
     outtextxy(115,307,"Seat no. :::");
-   // outtextxy(150,307,"BUY Enter");
     //input/
     //FILE *file_pointer;
     gets(a);
     gotoxy(30,12);
     gets(name);
-    strcat(name,".txt");
-    strcat(path,name);
+    strcpy(b, name);
+    strcat(b,".txt");
+    strcat(path,b);
     //open the file "name_of_file.txt" for writing
     file_pointer = fopen(path, "a");
     gotoxy(25,14);
@@ -405,28 +420,28 @@ void res()
     gets(time);
     gotoxy(25,18);
     printf("Rs. ");
-    gets(rate);
+    scanf("%d",&rate);
     gotoxy(64,18);
-    gets(pass);
+    scanf("%d",&pass);
+    gets(a);
     gotoxy(28,20);
     gets(seat);
-    //inserting data in to a file//
+    total = rate*pass;
     fprintf(file_pointer,"\t\tWell come to Bus Ticketing & Reservation System\n\t\t\t\tNarayani Yatayat\n\t\t\t\tKathmandu, Nepal\n\n\n");
     fprintf(file_pointer,"\tBus No. : BA 20 JA 2354\t\t\t\tDate : %s\n\n",date);
     fprintf(file_pointer,"\tFull Name = ");
     fputs(name,file_pointer);
     fprintf(file_pointer,"\n\tFrom : ");
     fputs(from,file_pointer);
-    fprintf(file_pointer,"\tTo : \t");
+    fprintf(file_pointer,"\tTo : ");
     fputs(to,file_pointer);
-    fprintf(file_pointer,"Time : ");
+    fprintf(file_pointer,"\tTime : ");
     fputs(time,file_pointer);
-    fprintf(file_pointer,"%s\n\tNo of Passenger : ");
-    fputs(pass,file_pointer);
-    fprintf(file_pointer,"%s\tSeat no : ");
+    fprintf(file_pointer,"\n\tNo of Passenger : %d",pass);
+    fprintf(file_pointer,"\tSeat no : ");
     fputs(seat,file_pointer);
-    fprintf(file_pointer,"%s\n\tRate : ");
-    fputs(rate,file_pointer);
+    fprintf(file_pointer,"\n\tRate : %d",rate);
+    fprintf(file_pointer,"\n\ttotal : %d",total);
     // Close the file)
     fclose(file_pointer);
     clrscr();
@@ -523,6 +538,12 @@ void more()
     }
     else if(ch == 'N' || ch == 'n')
     {
+	    clrscr();
+        setfillstyle(1,0);
+        rectangle(0,0,660,660);
+        floodfill(1,1,15);
+        //clrscr();
+        //outtextxy(170,265,"Invalid Username or Password");
         login();
     }
     else
