@@ -1,3 +1,10 @@
+/*
+Author: Kusmakhar Pathak
+college Name: Sunway Business School
+College Project on BTRS
+Date: 2019/01/25
+Team Name: BTRS
+*/
 #include<stdio.h>
 #include<conio.h>
 #include<graphics.h>
