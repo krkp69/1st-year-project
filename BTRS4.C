@@ -4,6 +4,8 @@ college Name: Sunway Business School
 College Project on BTRS
 Date: 2019/01/25
 Team Name: BTRS
+github: https://github.com/krkp69/
+Linkedin: https://www.linkedin.com/in/kusmakhar-pathak-7620ab152/
 */
 #include<stdio.h>
 #include<conio.h>
